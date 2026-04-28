@@ -1,0 +1,8 @@
+# Dependency folders
+**/node_modules/
+
+# Secrets (the most important part!)
+**/.env
+**/.env.local
+.env
+.env.local
