@@ -17,6 +17,8 @@
       
 - [x] Build an AI agent
       
-- [ ] Learn Data Structures and Algorithms [▓▓▓▓▓▓▓░░░] 75%
+- [x] Learn Data Structures and Algorithms
+
+- [ ] Build a Static Site Generator
 
 [Check My Progress in Boot.dev](https://www.boot.dev/u/gorilaprada)
