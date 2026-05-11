@@ -6,3 +6,7 @@
 **/.env.local
 .env
 .env.local
+
+# For 10_SSG
+**__pycache__/
+
