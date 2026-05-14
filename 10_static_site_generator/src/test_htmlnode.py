@@ -1,8 +1,6 @@
 import unittest
 
-from htmlnode import HTMLNode
-from htmlnode import LeafNode
-from htmlnode import ParentNode
+from htmlnode import HTMLNode, LeafNode, ParentNode
 
 class testHTMLNode(unittest.TestCase):
     def test_eq(self):
@@ -59,6 +57,7 @@ class testHTMLNode(unittest.TestCase):
             parent_node.to_html(),
             '<div><span><img href="www.boot.dev">the image</img></span></div>',
         )
+
 
 
 if __name__ == "__main__":
