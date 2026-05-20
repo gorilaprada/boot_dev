@@ -1,7 +1,7 @@
 import unittest
 
-from split_nodes import split_nodes_delimiter, split_nodes_image, split_nodes_link
 from textnode import TextNode, TextType, text_node_to_html_node
+from split_nodes import split_nodes_delimiter, split_nodes_image, split_nodes_link, text_to_text_nodes
 
 class testSplitNodesFunc(unittest.TestCase):
     # Test function split_nodes_delimiter
@@ -76,6 +76,46 @@ class testSplitNodesFunc(unittest.TestCase):
             ],
             new_nodes,
         )
+
+    # Test text_to_text_nodes
+    def test_first(self):
+        text = "This is **text** with an _italic_ word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
+        new_nodes = text_to_text_nodes(text)
+        self.assertListEqual(
+            [
+                TextNode("This is ", TextType.TEXT),
+                TextNode("text", TextType.BOLD),
+                TextNode(" with an ", TextType.TEXT),
+                TextNode("italic", TextType.ITALIC),
+                TextNode(" word and a ", TextType.TEXT),
+                TextNode("code block", TextType.CODE),
+                TextNode(" and an ", TextType.TEXT),
+                TextNode("obi wan image", TextType.IMAGE, "https://i.imgur.com/fJRm4Vk.jpeg"),
+                TextNode(" and a ", TextType.TEXT),
+                TextNode("link", TextType.LINK, "https://boot.dev"),
+            ],
+            new_nodes,
+        )
+
+    def test_second(self):
+        text = "Second try of **test_to_text_nodes** function `here is the code`. ![Screenshot](www.screenchot.com) and [see code on Codeberg](https://codeberg.com/gorilaprada/code)"
+        new_nodes = text_to_text_nodes(text)
+        self.assertListEqual(
+            [
+                TextNode("Second try of ", TextType.TEXT),
+                TextNode("test_to_text_nodes", TextType.BOLD),
+                TextNode(" function ", TextType.TEXT),
+                TextNode("here is the code", TextType.CODE),
+                TextNode(". ", TextType.TEXT),
+                TextNode("Screenshot", TextType.IMAGE, "www.screenchot.com"),
+                TextNode(" and ", TextType.TEXT),
+                TextNode("see code on Codeberg", TextType.LINK, "https://codeberg.com/gorilaprada/code"),
+
+            ],
+            new_nodes,
+        )
+
+
 
 if __name__ == "__main__":
     unittest.main()

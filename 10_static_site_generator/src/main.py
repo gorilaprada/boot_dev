@@ -5,4 +5,5 @@ def main():
     testNode = TextNode("some text", TextType.TEXT,"www.gorilaprada.com")
     print(testNode)
 
+
 main()
