@@ -1,9 +1,17 @@
 import unittest
 
 from textnode import TextNode, TextType, text_node_to_html_node
-from split_nodes import split_nodes_delimiter, split_nodes_image, split_nodes_link, text_to_text_nodes
 
-class testSplitNodesFunc(unittest.TestCase):
+from inline_markdown import (
+    split_nodes_delimiter,
+    split_nodes_image,
+    split_nodes_link,
+    text_to_text_nodes,
+    extract_markdown_links,
+    extract_markdown_images,
+)
+
+class testInlineMarkdown(unittest.TestCase):
     # Test function split_nodes_delimiter
     def test_text(self):
         node = TextNode("This is a text node with some `def foo(): return` and more `def foo2(): return`", TextType.TEXT)
@@ -76,6 +84,18 @@ class testSplitNodesFunc(unittest.TestCase):
             ],
             new_nodes,
         )
+
+    # Test extract_mardown_links, extract_markdown_images
+    def test_extract_markdown_images(self):
+        matches = extract_markdown_images(
+            "This is text with an ![image](https://i.imgur.com/zjjcJKZ.png)"
+        )
+        self.assertListEqual([("image", "https://i.imgur.com/zjjcJKZ.png")], matches)
+
+    def test_extract_markdown_links(self):
+        matches = extract_markdown_links("[to youtube](https://www.youtube.com/@bootdotdev)")
+        self.assertListEqual([("to youtube", "https://www.youtube.com/@bootdotdev")], matches)
+
 
     # Test text_to_text_nodes
     def test_first(self):
