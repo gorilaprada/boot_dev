@@ -2,7 +2,7 @@ import re
 from textnode import TextNode, TextType
 
 
-def text_to_text_nodes(text: str) -> list[textnode]:
+def text_to_text_nodes(text: str) -> list[TextNode]:
     origin_node = TextNode(text, TextType.TEXT)
     first = split_nodes_image([origin_node])
     second = split_nodes_link(first)
