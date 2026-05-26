@@ -15,6 +15,13 @@ class BlockType(Enum):
     UNORDERED_LIST = "unordered_list"
     ORDERED_LIST = "ordered_list"
 
+def extract_title(markdown: str) -> str:
+    list_of_lines = markdown.split("\n")
+    for line in list_of_lines:
+        if line.startswith("# "):
+            return line[2:]
+    raise Exception("No h1 header in markdown")
+
 # ==========================================================
 # For markdown_to_html
 
