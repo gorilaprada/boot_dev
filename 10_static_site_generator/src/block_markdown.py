@@ -1,7 +1,6 @@
 import re
 from enum import Enum
-# ==========================================================
-# For markdown_to_html
+# ========================================================== For markdown_to_html
 from htmlnode import HTMLNode, ParentNode, LeafNode
 from textnode import TextType, TextNode, text_node_to_html_node
 from inline_markdown import text_to_text_nodes
