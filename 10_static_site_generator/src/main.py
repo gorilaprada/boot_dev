@@ -5,12 +5,27 @@ import os
 import shutil
 
 def main():
-    src = "./static/"
-    target = "./public/"
-    if os.path.exists(target):
-        shutil.rmtree(target)
-    static_to_public(src, target)
-    generate_page("content/index.md", "template.html", "public/index.html")
+    static_path = "static"
+    content_path = "content"
+    template_path = "template.html"
+    target_path = "public"
+    if os.path.exists(target_path):
+        shutil.rmtree(target_path)
+    static_to_public(static_path, target_path)
+    generate_pages_recursive(content_path, template_path, target_path)
+    return
+
+def generate_pages_recursive(dir_path_content: str, template_path: str, dest_dir_path: str) -> None:
+    list_of_content_paths = os.listdir(dir_path_content)
+    for content_path in list_of_content_paths:
+        new_dir_path = os.path.join(dir_path_content, content_path)
+        new_dest_path = os.path.join(dest_dir_path, content_path)
+        if os.path.isfile(new_dir_path):
+            new_dest_path = os.path.splitext(new_dest_path)[0] + ".html"
+            generate_page(new_dir_path, template_path, new_dest_path)
+        else:
+            generate_pages_recursive(new_dir_path, template_path, new_dest_path)
+    return
 
 def generate_page(from_path: str, template_path: str, dest_path: str) -> None:
     print(f"Generating page from {from_path} to {dest_path} from {template_path}")
@@ -31,10 +46,6 @@ def generate_page(from_path: str, template_path: str, dest_path: str) -> None:
     with open(dest_path, "w") as dest_file:
         dest_file.write(full_html)
     return
-
-
-
-
 
 def static_to_public(src: str, target: str) -> None:
     if not os.path.exists(target):
