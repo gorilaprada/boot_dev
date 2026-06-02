@@ -19,6 +19,8 @@
       
 - [x] Learn Data Structures and Algorithms
 
-- [ ] Build a Static Site Generator
+- [x] Build a Static Site Generator
+
+- [ ] Learn Memory Management in C
 
 [Check My Progress in Boot.dev](https://www.boot.dev/u/gorilaprada)
