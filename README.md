@@ -30,6 +30,14 @@
 
 - [x] Learn Typescript
 
-- [ ] Learn HTTP Clients
+- [x] Learn HTTP Clients
+
+- [x] Build A Pokedex [Pokedex Repo](https://github.com/gorilaprada/pokedex.git)
+      
+- [x] Learn SQL
+
+- [x] Build A Blog Aggregator [Aggregator Repo](https://github.com/gorilaprada/blog_aggregator.git)
+
+- [ ] Learn HTTP Servers
 
 [Check My Progress in Boot.dev](https://www.boot.dev/u/gorilaprada)
