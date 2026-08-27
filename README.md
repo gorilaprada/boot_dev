@@ -33,11 +33,21 @@
 - [x] Learn HTTP Clients
 
 - [x] Build A Pokedex [Pokedex Repo](https://github.com/gorilaprada/pokedex.git)
-      
+
 - [x] Learn SQL
 
 - [x] Build A Blog Aggregator [Aggregator Repo](https://github.com/gorilaprada/blog_aggregator.git)
 
-- [ ] Learn HTTP Servers
+- [x] Learn HTTP Servers
+
+- [x] Learn File Servers and CDNs [Repo](https://github.com/gorilaprada/20_file_server_and_cdn.git)
+
+- [x] Learn Docker
+
+- [ ] Learn Pub/Sub Architecture
+
+- [ ] Capstone Project
+
+- [ ] Learn How to Find a Programming Job
 
 [Check My Progress in Boot.dev](https://www.boot.dev/u/gorilaprada)
